@@ -33,6 +33,11 @@ pipeline {
                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
         }
+        stage('acceptance'){
+           steps{
+           input("do you want to proceed")
+           }
+           }
         stage('deploy'){
             steps{
                 echo "deploy into tomcat"
